@@ -1,0 +1,66 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Directory for npm v3's flat module structure
+node_modules/.bin
+
+# Cache directories
+bower_components/
+.tmp/
+temp/
+.cache/
+build/
+
+# Sensitive or environment-specific files
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# IDE and editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Tests
+/coverage
+
+# Transpiled output
+/dist
+/out
+/public
+
+# Serverless directories
+.serverless/
+
+# User-specific files
+.DS_Store
+Thumbs.db
+
+# Compiled binary addons
+/build/Release
+
+# Environment variables file for AWS Lambda
+.env.aws-lambda
+
+# Yarn
+yarn-error.log
+
+# Mac specific
+.DS_Store
