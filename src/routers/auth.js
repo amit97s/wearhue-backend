@@ -5,10 +5,15 @@ import authMiddleware  from "../middleware/auth.js";
 const router = express.Router();
 
 router.post('/signup', authController.signup);
+// done sign up
 router.post('/verify-otp', authController.verifyOTP);
+// 
 router.post('/resend-otp', authController.resendOTP);
+// 
 router.post('/login', authController.login);
+// login    
 router.post('/forgot-password', authController.forgotPassword);
+// 
 router.post('/reset-password', authController.resetPassword);
 router.post('/change-password', authMiddleware.protect, authController.changePassword);
 router.post('/session', authMiddleware.protect, authController.authStatus);
