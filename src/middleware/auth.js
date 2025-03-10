@@ -1,18 +1,14 @@
 import jwt  from 'jsonwebtoken'
 import UserModel from '../models/users.js';
+import ENV_CONFIG from '../config/config.env.js';
+
 
 const authMiddleware = {
 
   protect: async (req, res, next) => {
     try {
-      console.log(req.headers,"auth")
-      // let token;
-      // if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-      //   token = req.headers.authorization.split(' ')[1];
-        
-      // }
+      
       const token = req.headers.authorization?.split(' ')[1]; 
-      console.log(token,"token");
       if (!token) {
         return res.status(401).json({ success: false, message: 'Access denied. No token provided' });
       }
@@ -21,7 +17,7 @@ const authMiddleware = {
 
       }
 
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, ENV_CONFIG.JWT_SECRET_KEY);
       req.user = await UserModel.findById(decoded.id).select('-password');
       next();
     } catch (error) {
